@@ -24,7 +24,7 @@ void Unit::FindTheWay(int** a, int n, int m, int start_i, int start_j, int finis
 	int i, j, counter = 0;
 	int prev_val = 1; // Значение на "предыдущей клетке"
 	bool flag = false; // Путь не найден
-	a[start_i][start_j] = 1;
+	//a[start_i][start_j] = 1;
 	InitPriorityQueue(inz);
 	AddPriorityQueue(inz, start_i, start_j, 0, prev_val);
 	while ((CheckPriorityQueue(inz)) && (!flag))
@@ -38,28 +38,28 @@ void Unit::FindTheWay(int** a, int n, int m, int start_i, int start_j, int finis
 		else
 		{
 			//if ((i - 1 > 0) && (a[i - 1][j] == 0))
-			if ((i - 1 > 0) && (a[i - 1][j] == 0))
+			if ((i - 1 >= 0) && (a[i - 1][j] == 0))
 			{
 				//a[i - 1][j] = a[i][j] + 1;
-				a[i - 1][j] = prev_val +1;
+				//a[i - 1][j] = prev_val +1;
 				AddPriorityQueue(inz, i - 1, j, distance(i - 1, j, finish_i, finish_j) /*+ distance(i - 1, j, start_i, start_j)*/, prev_val + 1);
 			}
-			if ((j - 1 > 0) && (a[i][j - 1] == 0))
+			if ((j - 1 >= 0) && (a[i][j - 1] == 0))
 			{
 				//a[i][j - 1] = a[i][j] + 1;
-				a[i][j - 1] = prev_val + 1;
+				//a[i][j - 1] = prev_val + 1;
 				AddPriorityQueue(inz, i, j - 1, distance(i, j - 1, finish_i, finish_j) /*+ distance(i, j - 1, start_i, start_j)*/, prev_val + 1);
 			}
 			if ((i + 1 < n) && (a[i + 1][j] == 0))
 			{
 				//a[i + 1][j] = a[i][j] + 1;
-				a[i + 1][j] = prev_val + 1;
+				//a[i + 1][j] = prev_val + 1;
 				AddPriorityQueue(inz, i + 1, j, distance(i + 1, j, finish_i, finish_j)/* + distance(i + 1, j, start_i, start_j)*/, prev_val + 1);
 			}
 			if ((j + 1 < m) && (a[i][j + 1] == 0))
 			{
 				//a[i][j + 1] = a[i][j] + 1;
-				a[i][j + 1] = prev_val + 1;
+				//a[i][j + 1] = prev_val + 1;
 				AddPriorityQueue(inz, i, j + 1, distance(i, j + 1, finish_i, finish_j) /*+ distance(i, j + 1, start_i, start_j)*/, prev_val + 1);
 			}
 		}
