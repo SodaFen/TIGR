@@ -57,6 +57,9 @@ private:
 	void CheckNextStep(int** temp_a,ref_priority_queue q, int i, int j, int next_i, int next_j, int move_price, int finish_i, int finish_j); 
 	// Построение пути обратно
 	void BuildWayBack(int** map, int** temp_a, int n, int m, int start_i, int start_j, int finish_i, int finish_j);
+	// Получить координаты в матрице
+	int GetX();
+	int GetY();
 protected:
 	// Массив пути, содержит координаты шагов i, j
 	struct way_to_target
