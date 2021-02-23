@@ -1,0 +1,4 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\vanon\source\repos\ConsoleApplication1 (1)\ConsoleApplication1\ConsoleApplication1.cpp(45,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\vanon\source\repos\ConsoleApplication1 (1)\ConsoleApplication1\ConsoleApplication1.cpp(66,19): warning C4018: <: несоответствие типов со знаком и без знака
+  ConsoleApplication1.vcxproj -> C:\Users\vanon\source\repos\ConsoleApplication1 (1)\Debug\ConsoleApplication1.exe
