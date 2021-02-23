@@ -20,6 +20,11 @@ Unit::Unit(int hp, int vel, int dmg, int cost, int armor, int distance, int i, i
 	current_move_index = 0;
 }
 
+Unit::~Unit()
+{
+	delete mas_cell;
+}
+
 void Unit::FindTheWay(int** map,int **temp_a, int n, int m, int start_i, int start_j, int finish_i, int finish_j)
 {
 	ref_priority_queue inz;
@@ -199,6 +204,16 @@ void Unit::CheckNextStep(int** temp_a, ref_priority_queue q, int i, int j, int n
 	}
 }
 
+int Unit::GetX()
+{
+	return unit_j;
+}
+
+int Unit::GetY()
+{
+	return unit_i;
+}
+
 void Unit::MakeNextMove(int** a)
 {
 	if (current_move_index > 0)
@@ -206,6 +221,8 @@ void Unit::MakeNextMove(int** a)
 		a[way[current_move_index].i][way[current_move_index].j] = 0;
 		current_move_index--;
 		a[way[current_move_index].i][way[current_move_index].j] = 999;
+		unit_i = way[current_move_index].i;
+		unit_j = way[current_move_index].j;
 	}
 	else
 	{
