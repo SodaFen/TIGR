@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <fstream>
 #include "Unit.h"
+#include "Windows.h"
 
 
 using namespace std;
@@ -18,11 +19,18 @@ int main()
 	int n, m;
 	input >> n >> m;
 	int **mas = new int* [n];
+	int** a = new int* [n];
 	for (int i = 0; i < n; i++)
+	{
 		mas[i] = new int[m];
+		a[i] = new int[m];
+	}
 	for (int i = 0; i < n; i++)
 		for (int j = 0; j < m; j++)
+		{
 			input >> mas[i][j];
+			a[i][j] = 0;
+		}
 	input.close();
 	for (int i = 0; i < n; i++)
 	{
@@ -37,15 +45,27 @@ int main()
 	cout << "¬ведите конечную точку: ";
 	cin >> finish_i >> finish_j;
 	Unit* test_unit = new Unit(100, 20, 20, 20, 20, 20, 0, 0);
-	test_unit->FindTheWay(mas, n, m, start_i, start_j, finish_i, finish_j);
+	test_unit->FindTheWay(mas, a, n, m, start_i, start_j, finish_i, finish_j);
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < m; j++)
-			cout << setw(3) << mas[i][j] << ' ';
+			cout << setw(3) << a[i][j] << ' ';
 		cout << endl;
 	}
 	cout << endl;
 	test_unit->PrintWay();
+	/*for (int i = 0; i < 160; i++)
+	{
+		test_unit->MakeNextMove(mas);
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < m; j++)
+				cout << setw(3) << mas[i][j] << ' ';
+			cout << endl;
+		}
+		cout << endl;
+		Sleep(1000);
+	}*/
 	/*RenderWindow window(VideoMode(200, 200), "Vitya_Titya");
 	Texture tex;
 	if (!tex.loadFromFile("E:\\PROJECT\\ProjectTIGR\\Textures\\man.jpg"))
